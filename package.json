@@ -1,0 +1,33 @@
+{
+  "name": "thinking-about-react-atomically",
+  "version": "1.0.0",
+  "description": "Slides for Connectaha 2019 session",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "pdf": "mdx-deck pdf deck.mdx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katiawheeler/Thinking-About-React-Atomically.git"
+  },
+  "author": "Katia Wheeler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katiawheeler/Thinking-About-React-Atomically/issues"
+  },
+  "homepage": "https://github.com/katiawheeler/Thinking-About-React-Atomically#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.15",
+    "@fortawesome/free-brands-svg-icons": "^5.7.2",
+    "@fortawesome/free-regular-svg-icons": "^5.7.2",
+    "@fortawesome/free-solid-svg-icons": "^5.7.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
+    "mdx-deck": "^1.8.2"
+  },
+  "devDependencies": {
+    "file-loader": "^3.0.1",
+    "mdx-deck-code-surfer": "^0.5.5",
+    "raw-loader": "^1.0.0"
+  }
+}

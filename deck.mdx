@@ -1,0 +1,1020 @@
+export { theme } from './config';
+import { colors, layouts } from './config';
+import { TwoColumn, Center } from './containers';
+import { StyledElements, ContactInfo, ComponentDisplay as Components, Organisms, Sponsors } from './slide-components';
+import { Search, Header, Demo, Article, DemoTemplate, Blog } from './demo';
+
+import { images } from './assets/images';
+import { demoAtomsFirst, demoAtomsSecond, demoMoleculesFirst, demoMoleculesSecond } from './constants';
+
+import { Appear } from 'mdx-deck';
+
+import vsDark from "prism-react-renderer/themes/vsDark"
+import { CodeSurfer } from "mdx-deck-code-surfer"
+
+
+# Thinking About React, Atomically ⚛️
+
+## Katia Wheeler
+
+---
+
+# Thank You Sponsors!
+
+<Sponsors />
+
+---
+
+# Katia Wheeler
+
+<TwoColumn padding={ '0px 30px'}>
+
+<ContactInfo />
+
+<div style={{ textAlign: 'left' }}>
+  <p style={{fontSize: '1.2em'}}>👩‍💻 Software Engineer<br/>☕ Coffee Enthusiast<br/>👾 Gamer</p>
+<div>
+
+- Based in Kansas City
+- Primarily work with React & .NET
+- Expert Dabbler
+- Passionate about UX
+
+</div>
+</div>
+</TwoColumn>
+
+---
+
+# So, what brought you here today?
+
+---
+
+# Who is this talk for?
+
+---
+
+# What We'll Cover
+
+- What is atomic design?
+- How do we create a design system?
+- How does atomic design help my React applications?
+- What are some tools to create a component library utilizing atomic design?
+
+---
+
+## **Got questions?**
+
+### Raise yo' hand 🙋‍♀️
+
+---
+
+# Atomic Design?
+
+<img
+  src={images.atomicBatman}
+  style={{
+    width: '500px',
+    height: '400px',
+    margin: '0 auto'
+  }}
+/>
+
+---
+
+export default layouts.Padded;
+
+<TwoColumn padding={'0 20px'}>
+
+<div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
+
+# Brad Frost
+
+<img
+  src={images.brad}
+  style={{
+    width: '400px',
+    height: '400px',
+    borderRadius: '100%',
+    margin: '0 auto 20px auto'
+  }}
+/>
+
+#### http://bradfrost.com/
+
+</div>
+
+<div style={{fontSize: '0.9em'}}>
+
+- Web Designer & Developer
+- Helped redesign Time Inc. (Time, Fortune, People, Sports Illustrated), TechCrunch, Entertainment Weekly
+- Passionate about UX
+- Side Projects: Pattern Lab, Styleguides.io, This is Responsive
+- Creator of atomic design
+
+</div>
+
+</TwoColumn>
+
+---
+
+# History of Atomic Design ⚛️
+
+---
+
+Created during TechCrunch website redesign in **2013**
+
+---
+
+Wanted a system that looked at individual pieces of UI, not whole
+
+**Atomic design** was born 👶
+
+
+---
+
+<img
+  src={images.book}
+  style={{
+    width: '307px',
+    height: '475px',
+    backgroundSize: '307px 475px',
+    margin: '0 auto'
+  }}
+/>
+
+#### http://atomicdesign.bradfrost.com/
+
+---
+
+# What is Atomic Design?
+
+> "Atomic design is a methodology composed of five distinct stages working together to create interface design systems in a more deliberate and hierarchical manner."
+
+Brad Frost
+
+---
+
+# Let's break this down...
+
+---
+
+# It's a Methodology
+
+> "Atomic design is a **methodology**..."
+
+---
+
+# Five Stages Working Together
+
+> "...composed of **five distinct stages** working **together**..."
+
+---
+
+# Hierarchical
+
+> "......more **deliberate** and **hierarchical** manner."
+
+---
+
+# 📝 Another note...
+
+---
+
+# Non-linear
+
+> "Atomic design is **not** linear"
+
+---
+
+## Let's talk about the five stages
+
+<img src={images.atomicDesign} style={{ marginTop: '50px' }} />
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+# Atoms
+
+<img src={images.atoms} />
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+Labels, Inputs, and Buttons
+
+<Components alignment={'flex-start'} />
+
+---
+
+## Natural World
+
+<TwoColumn padding={'0 20px'}>
+
+<div>
+  <img src={images.hydrogen} style={{zoom: '125%'}}/>
+</div>
+<div>
+  <img src={images.helium} style={{zoom: '125%'}}/>
+</div>
+
+</TwoColumn>
+
+---
+
+## User interfaces
+
+
+```<button type="submit" />```
+
+<br/>
+
+```<input width="400"/>```
+
+---
+
+# Molecules
+
+<img src={images.molecules} />
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+## Natural World
+
+
+<TwoColumn>
+<h3>Water</h3>
+<h3>Hydrogen Peroxide</h3>
+</TwoColumn>
+
+<TwoColumn padding={'0 20px'}>
+<img src={images.water} style={{zoom: '125%'}} />
+<img src={images.hydrogenPeroxide} style={{zoom: '125%'}} />
+</TwoColumn>
+
+---
+
+Search Form
+
+<Search label={true} labelPosition={'top'} style={{zoom: '125%'}} />
+
+---
+
+# Organisms
+
+<img src={images.organisms} />
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+A Header
+
+<Header />
+
+---
+
+A `ProductGrid` organism might be comprised of multiple `ProductCard` molecules
+
+<img src={images.productGrid} style={{ maxWidth: '700px', margin: '0 auto' }} />
+<p style={{fontSize: '12px'}}>Credit: Gap</p>
+
+---
+
+# Templates
+
+<img src={images.templates} />
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+<img src={images.template} style={{ width:'600px'}}/>
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+# Pages
+
+<img src={images.pages} />
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+<img src={images.page} style={{ width:'650px'}}/>
+<p style={{fontSize: '12px'}}>Credit: Atomic Design</p>
+
+---
+
+# What's the benefit to all this madness?
+
+---
+
+## Abstract and Concrete
+
+Atomic design provides us the ability to quickly shift between the **abstract and the concrete**
+
+---
+
+The **parts** of our design influence the **whole**, and the **whole** influences the **parts**
+
+---
+
+## Separation Between Structure and Content
+
+Discussing **design and content** is like discussing the **chicken and the egg** 🐣
+
+
+---
+
+> "Content needs to be structured and structuring alters your content, designing alters content. It’s not ‘content then design’, or ‘content or design’. It’s ‘**content and design**’"
+
+Mark Boulton
+
+---
+
+## Universal
+
+Atomic design is **not just for the web**
+
+It’s for **user interfaces as a whole**
+
+---
+
+<img src={images.instagram} style={{ width: '1200px' }} />
+
+---
+
+## Not a Strict Dogma
+
+If you don't like the atomic nomenclature, **change it**
+
+---
+
+# Let's break down an interface...
+
+---
+
+<TwoColumn padding="0 20px">
+  <Demo />
+  <Article />
+</TwoColumn>
+
+---
+
+<Demo />
+
+---
+
+<DemoTemplate />
+
+---
+
+### Organisms
+
+<Organisms />
+
+---
+
+### Molecules
+
+<Components components={demoMoleculesFirst} />
+
+---
+
+<Components components={demoMoleculesSecond} />
+
+---
+
+### Atoms
+
+<TwoColumn padding={'0 50px'} alignment={'flex-start'} border={'1px solid #fff'} >
+<Components components={demoAtomsFirst}/>
+<Components components={demoAtomsSecond} />
+</TwoColumn>
+
+---
+
+<Demo />
+
+---
+
+<TwoColumn padding="0 20px">
+  <Demo />
+  <Article />
+</TwoColumn>
+
+---
+
+# How can this help my React applications?
+
+---
+
+**I'm so glad you asked!**
+
+---
+
+Atomic design can be a **guideline for good architecture**
+
+---
+
+React thrives on the **KISS** method
+
+---
+
+<CodeSurfer
+title="Comment.js"
+  code={require("!raw-loader!./slide-components/Comment/Comment.js")}
+  theme={vsDark}
+  showNumbers={true}
+  steps={[
+    { notes: ""},
+    { range: [7, 15]},
+    { range: [22, 26]},
+    { notes: ""},
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="UserInfo.js"
+  code={require("!raw-loader!./slide-components/UserInfo/UserInfo.js")}
+  theme={vsDark}
+  showNumbers={true}
+  dark={true}
+  steps={[
+    { notes: ""},
+    { range: [5, 8]},
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Avatar.js"
+  code={require("!raw-loader!./slide-components/UserInfo/Avatar.js")}
+  theme={vsDark}
+  showNumbers={true}
+  dark={true}
+  steps={[
+    { notes: ""},
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="UserInfo.js"
+  code={require("!raw-loader!./slide-components/UserInfo/UserInfoFinished.js")}
+  theme={vsDark}
+  showNumbers={true}
+  dark={true}
+  steps={[
+    { lines: [2], notes: ""},
+    { lines: [6], notes: ""},
+    { notes: ""}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Comment.js"
+  code={require("!raw-loader!./slide-components/Comment/CommentWithUserInfo.js")}
+  theme={vsDark}
+  showNumbers={true}
+  dark={true}
+  steps={[
+    { lines: [2]},
+    { lines: [8], notes: ""},
+    { notes: ""},
+    { range: [15, 19], notes: ""},
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="CommentActions.js"
+  code={require("!raw-loader!./slide-components/CommentActions/CommentActions.js")}
+  theme={vsDark}
+  showNumbers={true}
+  dark={true}
+  steps={[
+    { notes: ""},
+    { range: [5, 9] }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+title="Comment.js"
+  code={require("!raw-loader!./slide-components/Comment/CommentFinished.js")}
+  theme={vsDark}
+  showNumbers={true}
+  dark={true}
+  steps={[
+    { notes: ""},
+    { lines: [2, 3] },
+    { lines: [8] },
+    { lines: [15] },
+    { notes: ""}
+  ]}
+/>
+
+---
+
+We can take this **even further**...
+
+---
+
+We can build a component library **utilizing atomic design**
+
+---
+
+# Before we create a component library, we need to create the design system
+
+---
+
+## How do we create a design system?
+
+---
+
+People are the key 🔑
+
+---
+
+These people need to be **internal stakeholders**
+
+---
+
+## How do I get others on board?
+
+---
+
+Change is **hard**
+
+---
+
+Constant communication 💬 and education 👩‍🏫
+
+---
+
+## Benefits of Design Systems
+
+- Promote consistency and cohesion 
+- Speed up your team’s productivity 
+- Establish a more collaborative workflow with a shared vocabulary
+- Serve as a future-friendly foundation
+
+---
+
+Design systems lead to **cohesive, consistent experiences**
+
+---
+
+Design systems **speed up your team’s workflow** by allowing you to **reuse aspects of user interfaces** without having to reinvent the wheel in every project
+
+---
+
+Centralizing UI elements in a pattern library or component library establishes a **shared vocabulary for everyone** within the organization, not just developers
+
+---
+
+Design systems make cross-browser/device, performance, and accessibility **testing easier**, vastly **speed up production** time, and allow teams to **launch high-quality work faster**
+
+---
+
+This design system is a **living, breathing asset** to your organization that can be adapted and modified based on your organization’s needs.
+
+---
+
+# People are listening 👂, now what?
+
+---
+
+It's about to get painful 🏥
+
+---
+
+It's time to perform an **interface audit**
+
+---
+
+**Tedious process**, but hard work pays off 💪
+
+---
+
+An **interface inventory** is a comprehensive collection of the bits and pieces that make up your user interface
+
+---
+
+# What does the process of an interface audit look like?
+
+---
+
+Screenshots 📸
+
+---
+
+# Steps of an interface audit
+
+
+<ol>
+<Appear>
+<StyledElements.LI>Gather the Troops 🙋🙋‍♂🙋 </StyledElements.LI>
+<StyledElements.LI>Prepare for the Screenshots 📋</StyledElements.LI>
+<StyledElements.LI>Screenshots Galore! 📸</StyledElements.LI>
+<StyledElements.LI>Sharing is Caring 👨‍🏫</StyledElements.LI>
+<StyledElements.LI>All Aboard! 🚂</StyledElements.LI>
+</Appear>
+</ol>
+
+---
+
+## 1. Gather the Troops 🙋🙋‍♂🙋
+
+Don’t try and do this on your own for three reasons:
+
+<ol>
+<Appear>
+<StyledElements.LI>It can be overwhelming</StyledElements.LI> 
+<StyledElements.LI>You will miss things</StyledElements.LI>
+<StyledElements.LI>Others need to feel your pain 💥🥊</StyledElements.LI>
+</Appear>
+</ol>
+
+---
+
+## 2. Prepare for the Screenshots 📋
+
+You'll need a place to store your screenshots like...
+
+PowerPoint or Keynote, Photoshop or Sketch, Evernote Web Clipper, Google Docs, or Microsoft Word
+
+---
+
+## 3. Screenshots Galore! 📸
+
+The interface audit exercise involves screenshotting and categorizing all the **unique user interface patterns** that make up your overall user interface
+
+---
+
+## What's the best method for the screenshot exercise 🏋️?
+
+
+---
+
+Assign each person or pair a **category**
+
+---
+
+## What's a category?
+
+---
+
+Some category options include:
+
+<ul>
+<Appear>
+<StyledElements.LI style={{fontSize: '1em'}}>Global Elements: headers, footers</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Navigation: main nav, footer nav, pagination</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Images: logos, hero images, avatars, thumbnails</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Icons: social, arrows, hamburgers, spinners</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Forms: inputs, text areas, select menus, checkboxes, radio buttons</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Buttons: primary, secondary, big, small, disabled</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Headings: h1, h2, h3, h4, h5, h6</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Lists: ordered, unordered, striped, lined</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Interactive Components: accordions, tabs, carousels</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Messaging: alerts, success, errors, warnings, modals, tooltips</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>Colors: All colors used in site</StyledElements.LI>
+<StyledElements.LI style={{fontSize: '1em'}}>...</StyledElements.LI>
+</Appear>
+</ul>
+
+---
+
+It's **very easy to get lost** in this part of the process 🤔
+
+---
+
+⏱️ **Time-box** the screenshot exercise
+
+(30-90 minutes)
+
+---
+
+## 4. Sharing is Caring 👨‍🏫
+
+Combine all of the participants' findings into one **mega-document**
+
+---
+
+Have each participant spend **5-10 minutes presenting** their findings
+
+---
+
+## 5. All Aboard! 🚂
+
+Now it's time to get the **entire organization** on board
+
+---
+
+# Why did I go through all of that **pain and suffering**?
+
+---
+
+## Benefits of an interface audit
+
+- Captures all patterns and their inconsistencies
+- Gets organizational buy-in
+- Establishes a scope of work
+- Lays the groundwork to a sound interface design system
+
+---
+
+## Benefits of an interface audit
+
+- Captures all patterns and their inconsistencies
+- Gets organizational buy-in
+- Establishes a scope of work
+- Lays the groundwork to a sound interface design system
+
+
+---
+
+# Afraid your stakeholders will say no? 😓
+
+---
+
+**Ask forgiveness,** not permission
+
+---
+
+Our job is to **create great work for our clients and organizations**, and interface design systems are a means to that end
+
+---
+
+<img src={images.legoMess} style={{width: '1250px'}} />
+
+---
+
+<img src={images.legoOrganized} style={{width: '1250px'}} />
+
+---
+
+<img src={images.legoProcess} style={{width: '1250px'}} />
+
+---
+
+# Okay, let's do this! 👍
+
+Now it's time to begin creating unified patterns
+
+---
+
+# Tools to Create a Design System 🧰
+
+---
+
+Create a **style guide** in Sketch or Photoshop or implement a CSS framework
+
+---
+
+## Pattern Lab
+
+A static site generator (powered by PHP or Node) that **stitches together UI components**
+
+---
+
+Utilizes **Mustache**, a "logic-less" **templating tool**
+
+---
+
+## Benefits of Pattern Lab
+
+<div style={{fontSize: '.8em'}}>
+
+- Nested Patterns
+- Design with Dynamic Data
+- Tool Agnostic
+- Language Agnostic
+- Annotations
+- Pattern Starter Kits
+- Versatile
+- Pattern Lineage
+- Documentation
+- Extensible
+
+</div>
+
+---
+
+# Building a Component Library 🏗️
+
+---
+
+## Folder Structure 📁
+
+---
+
+```
+├── node_modules/
+├── src/                    
+│   ├── atoms/        
+│   │   ├── Button/        
+│   │   ├── Input/        
+│   │   └── Label/         
+│   ├── molecules/ 
+│   │   └── Search/             
+│   └── organisms/
+│       └── Header/         
+├── package.json              
+└── ...
+```
+
+---
+
+
+## Component Library Best Practices
+
+---
+
+Our components should be **data agnostic**
+
+---
+
+**Test every component** in the library
+
+---
+
+Consistent **import/export** patterns
+
+---
+
+Button.jsx
+
+```
+const Button = () => ...
+
+export default Button;
+```
+
+index.js
+```
+export { default as Button } from './atoms/Button.jsx'
+```
+
+---
+
+Use some kind of **release versioning**
+
+---
+
+Maintain an accurate `CHANGELOG.md` file
+
+---
+
+# Tools to Build the Library 🛠 ️
+
+---
+
+<img src={images.cra} style={{ width: '100vw' }}/>
+<p style={{fontSize: '12px'}}>Credit: Facebook</p>
+
+---
+
+<img src={images.bit} style={{ width: '100vw' }} />
+<p style={{fontSize: '12px'}}>Credit: Bit</p>
+
+---
+
+Note: Bit is **not entirely free**
+
+---
+
+## CSS-in-JS
+
+---
+
+Many CSS-in-JS libraries to choose from including Styled Components <💅>  and Emotion 👩‍🎤
+
+---
+
+CSS-in-JS makes themes a breeze
+
+You can create a **custom theme**, drop it in your `<ThemeProvider/>`, and all of the child components will inherit the theme's styles
+
+---
+
+You can switch themes through CSS-in-JS **without having to recompile** the entire application
+
+---
+
+## A few benefits of CSS-in-JS
+
+- Ensures consistency across your applications
+- Allows for nesting and extending styles
+- Quickly change a CSS property based on a JS property
+ 
+---
+
+# 📽️ We've made a beautiful component library, how do we show people?
+
+---
+
+You could set up your own **Create React App** that showcases all of your atomic components
+
+---
+
+Or you could use a **pre-built tool** to display your components
+
+---
+
+Here's a few options:
+
+<div style={{maxWidth: '600px'}}>
+<div style={{display: 'flex', alignItems: 'center'}}>
+<img src={images.storybookLogo} style={{width: '50px', marginRight: '20px' }} />
+<h3 style={{alignSelf: 'flex-start', fontSize: '1.5em' }}>Storybook</h3>
+</div>
+
+<div style={{display: 'flex', alignItems: 'center'}}>
+<img src={images.reactStyleguidistLogo} style={{width: '50px', marginRight: '20px' }} />
+<h3 style={{alignSelf: 'flex-start', fontSize: '1.5em' }}>React Styleguidist</h3>
+</div>
+
+<div style={{display: 'flex', alignItems: 'center'}}>
+<img src={images.blueKitLogo} style={{width: '50px', marginRight: '20px' }} />
+<h3 style={{alignSelf: 'flex-start', fontSize: '1.5em' }}>BlueKit</h3>
+</div>
+</div>
+
+---
+
+<img src={images.storybook} style={{width: '1200px' }} />
+
+---
+
+<img src={images.reactStyleguidist} style={{width: '100vw' }} />
+
+---
+
+<img src={images.reactStyleguidistExample} style={{ width: '100vw' }} />
+
+---
+
+<img src={images.blueKit} style={{width: '100vw' }} />
+
+---
+
+<img src={images.blueKitExample} style={{ width: '100vw' }} />
+
+---
+
+## We've created our design system and/or component library.
+
+We're done, right?
+
+---
+
+**Wrong** 🙅‍
+
+---
+
+Design systems are **living and breathing** things
+
+---
+
+# So, what now?
+
+---
+
+Go tell your colleagues 📣
+
+---
+
+Go tell your boss 📣
+
+---
+
+Go tell your organization 📣
+
+---
+
+Go tell your friends 📣
+
+---
+
+And think about React, **atomically** ⚛️
+
+---
+
+# Thank You! 
+
+## 🎉😄🙏🙌
+
+
+
+
